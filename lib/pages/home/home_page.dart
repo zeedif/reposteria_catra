@@ -10,11 +10,10 @@ import 'package:reposteria_catra/routes/routes.dart';
 import 'catalog/catalog_view.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.brown.shade700,
       appBar: AppBar(
@@ -38,15 +37,21 @@ class HomePage extends StatelessWidget {
             onTap: () {
               homeProvider.read.cambiarPantalla(0);
             },
-            child: SizedBox(
-              width: size.width * 0.2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(CupertinoIcons.cube_box_fill),
-                  Text("Pedidos"),
-                ],
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                double size = constraints.maxHeight;
+                return SizedBox(
+                  width: size,
+                  height: size,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(CupertinoIcons.cube_box_fill),
+                      Text("Pedidos"),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
           const SizedBox(width: 8),
@@ -55,15 +60,21 @@ class HomePage extends StatelessWidget {
             onTap: () {
               homeProvider.read.cambiarPantalla(2);
             },
-            child: SizedBox(
-              width: size.width * 0.2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(CupertinoIcons.cart_fill),
-                  Text("Carrito"),
-                ],
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                double size = constraints.maxHeight;
+                return SizedBox(
+                  width: size,
+                  height: size,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(CupertinoIcons.cart_fill),
+                      Text("Carrito"),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
           const SizedBox(width: 8),
@@ -95,15 +106,21 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            child: SizedBox(
-              width: size.width * 0.2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(Icons.logout),
-                  Text("Cerrar sesión"),
-                ],
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                double size = constraints.maxHeight;
+                return SizedBox(
+                  width: size,
+                  height: size,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.logout),
+                      Text("Salir"),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ],

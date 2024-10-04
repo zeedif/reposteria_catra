@@ -6,11 +6,11 @@ import 'package:reposteria_catra/global_controller/session_controller.dart';
 import 'package:reposteria_catra/pages/splash/splash_controller.dart';
 
 final splashProvider = SimpleProvider(
-  (_) => SplashController(sessionProvider.read,productosProvider.read),
+  (_) => SplashController(sessionProvider.read, productosProvider.read),
 );
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {

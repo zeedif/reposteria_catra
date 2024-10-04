@@ -11,11 +11,11 @@ import 'package:reposteria_catra/utils/send_login_form.dart';
 import 'package:reposteria_catra/widgets/inputs_text.dart';
 
 final loginProvider = SimpleProvider<LoginController>(
-  (_) => LoginController(sessionProvider.read,productosProvider.read),
+  (_) => LoginController(sessionProvider.read, productosProvider.read),
 );
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
       provider: loginProvider,
       builder: (_, controller) {
         return Scaffold(
-          resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: true,
           appBar: AppBar(),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
@@ -34,85 +34,88 @@ class LoginPage extends StatelessWidget {
                   color: Colors.white,
                   child: Form(
                     key: controller.formKey,
-                    child: ListView(
-                      padding: const EdgeInsets.all(20),
-                      shrinkWrap: true,
-                      children: <Widget>[
-                        ListTile(
-                          title: SizedBox(
-                            height: 100.0,
-                            width: 100.0,
-                            child: Image.asset(
-                                'assets/logo.png'),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                          child: const Text(
-                            "Repostería Catra",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 30,
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            ListTile(
+                              title: SizedBox(
+                                height: 100.0,
+                                width: 100.0,
+                                child: Image.asset('assets/logo.png'),
+                              ),
                             ),
-                          ),
-                        ),
-                        InputText(
-                          label: "Escribe tu correo...",
-                          onChanged: controller.onEmailChanged,
-                          inputType: TextInputType.emailAddress,
-                          validator: (text){
-                            //if (text == null) return 'Correo invalido';
-                            return isValidEmail(text!)
-                                ? null
-                                : 'Correo invalido';
-                          },
-                        ),
-                        InputText(
-                          label: "Escribe tu contraseña...",
-                          isPassword: true,
-                          onChanged: controller.onPasswordChanged,
-                          validator: (text){
-                            //if (text == null) return "Contraseña invalida. Necesita:\n* Tener al menos una letra y un número.\n* No contener espacios.\n* Medir de 6 a 16 caracteres.";
-                            return isValidPassword(text!)
-                                ? null
-                                : "Contraseña invalida. Necesita:\n* Tener al menos una letra y un número.\n* No contener espacios.\n* Medir de 6 a 16 caracteres.";
-                          },
-                        ),
-                        const SizedBox(height: 10),
-                        MaterialButton(
-                          onPressed: (){sendLoginForm(context);},
-                          color: Colors.pink,
-                          shape: const StadiumBorder(),
-                          height: 45,
-                          child: const Text(
-                            "Ingresar",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                          child: const Text(
-                            "¿No tienes una cuenta registrada?",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                            Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                              child: const Text(
+                                "Repostería Catra",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 30,
+                                ),
+                              ),
                             ),
-                          ),
+                            InputText(
+                              label: "Escribe tu correo...",
+                              onChanged: controller.onEmailChanged,
+                              inputType: TextInputType.emailAddress,
+                              validator: (text) {
+                                return isValidEmail(text!)
+                                    ? null
+                                    : 'Correo invalido';
+                              },
+                            ),
+                            InputText(
+                              label: "Escribe tu contraseña...",
+                              isPassword: true,
+                              onChanged: controller.onPasswordChanged,
+                              validator: (text) {
+                                return isValidPassword(text!)
+                                    ? null
+                                    : "Contraseña invalida. Necesita:\n* Tener al menos una letra y un número.\n* No contener espacios.\n* Medir de 6 a 16 caracteres.";
+                              },
+                            ),
+                            const SizedBox(height: 10),
+                            MaterialButton(
+                              onPressed: () {
+                                sendLoginForm(context);
+                              },
+                              color: Colors.pink,
+                              shape: const StadiumBorder(),
+                              height: 45,
+                              child: const Text(
+                                "Ingresar",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                              child: const Text(
+                                "¿No tienes una cuenta registrada?",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            MaterialButton(
+                              onPressed: () {
+                                router.pushNamedAndRemoveUntil(Rutas.REGISTER);
+                              },
+                              color: Colors.grey,
+                              shape: const StadiumBorder(),
+                              height: 45,
+                              child: const Text(
+                                "Regístrate",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
                         ),
-                        MaterialButton(
-                          onPressed: () {
-                            router.pushNamedAndRemoveUntil(Rutas.REGISTER);
-                          },
-                          color: Colors.grey,
-                          shape: const StadiumBorder(),
-                          height: 45,
-                          child: const Text(
-                            "Regístrate",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

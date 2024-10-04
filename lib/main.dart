@@ -1,20 +1,29 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:reposteria_catra/firebase_options.dart';
 import 'package:reposteria_catra/inject_dependencies.dart';
 import 'package:reposteria_catra/routes/app_routes.dart';
 import 'package:reposteria_catra/routes/routes.dart';
 import 'package:flutter_meedu/ui.dart';
+import 'package:reposteria_catra/utils/crear_productos.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await dotenv.load();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  if (kDebugMode) {
+    await cargarProductosIniciales();
+    // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  }
   injectDependencies();
   runApp(const MyApp());
   //await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override

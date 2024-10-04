@@ -5,7 +5,7 @@ import 'package:reposteria_catra/global_controller/productos_controller.dart';
 import 'package:reposteria_catra/routes/routes.dart';
 
 class CartView extends StatelessWidget {
-  const CartView({Key? key}) : super(key: key);
+  const CartView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class CartView extends StatelessWidget {
                                 softWrap: false,
                                 maxLines: 1,
                                 textAlign: TextAlign.left,
-                                style: Theme.of(context).textTheme.button,
+                                style: Theme.of(context).textTheme.labelLarge,
                               ),
                               Text(
                                 "Sabor: ${productos[index].sabor}\nCantidad: ${productos[index].cantidad}",
@@ -78,7 +78,7 @@ class CartView extends StatelessWidget {
                           "\$${(productos[index].precio * productos[index].cantidad).toStringAsFixed(2)}",
                           style: Theme.of(context)
                               .textTheme
-                              .button
+                              .labelLarge
                               ?.copyWith(color: Colors.pink),
                         ),
                         const SizedBox(width: 8),
@@ -126,9 +126,7 @@ class CartView extends StatelessWidget {
             else
               MaterialButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(
-                    Rutas.PAYMENT
-                  );
+                  Navigator.of(context).pushNamed(Rutas.PAYMENT);
                 },
                 color: Colors.purple.shade300,
                 child: const Text("Comprar"),

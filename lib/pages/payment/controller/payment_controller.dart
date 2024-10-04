@@ -50,7 +50,7 @@ class PaymentController extends StateNotifier<PaymentState> {
     state = state.copyWith(colonia: text);
   }
 
-  void onNumeroInteriorChanged(int i) {
+  void onNumeroInteriorChanged(int? i) {
     state = state.copyWith(numeroInterior: i);
   }
 

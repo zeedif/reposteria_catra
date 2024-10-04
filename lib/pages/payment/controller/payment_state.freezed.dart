@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'payment_state.dart';
 
@@ -12,7 +12,7 @@ part of 'payment_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PaymentState {
@@ -20,14 +20,16 @@ mixin _$PaymentState {
   String get apellidos => throw _privateConstructorUsedError;
   String get calle => throw _privateConstructorUsedError;
   int get numeroExterior => throw _privateConstructorUsedError;
-  int get numeroInterior => throw _privateConstructorUsedError;
+  int? get numeroInterior => throw _privateConstructorUsedError;
   String get colonia => throw _privateConstructorUsedError;
   int get codigoPostal => throw _privateConstructorUsedError;
   String get telefono => throw _privateConstructorUsedError;
   String get correo => throw _privateConstructorUsedError;
   String get metodoPago => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PaymentStateCopyWith<PaymentState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -36,13 +38,14 @@ mixin _$PaymentState {
 abstract class $PaymentStateCopyWith<$Res> {
   factory $PaymentStateCopyWith(
           PaymentState value, $Res Function(PaymentState) then) =
-      _$PaymentStateCopyWithImpl<$Res>;
+      _$PaymentStateCopyWithImpl<$Res, PaymentState>;
+  @useResult
   $Res call(
       {String nombres,
       String apellidos,
       String calle,
       int numeroExterior,
-      int numeroInterior,
+      int? numeroInterior,
       String colonia,
       int codigoPostal,
       String telefono,
@@ -51,84 +54,90 @@ abstract class $PaymentStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PaymentStateCopyWithImpl<$Res> implements $PaymentStateCopyWith<$Res> {
+class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
+    implements $PaymentStateCopyWith<$Res> {
   _$PaymentStateCopyWithImpl(this._value, this._then);
 
-  final PaymentState _value;
   // ignore: unused_field
-  final $Res Function(PaymentState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nombres = freezed,
-    Object? apellidos = freezed,
-    Object? calle = freezed,
-    Object? numeroExterior = freezed,
+    Object? nombres = null,
+    Object? apellidos = null,
+    Object? calle = null,
+    Object? numeroExterior = null,
     Object? numeroInterior = freezed,
-    Object? colonia = freezed,
-    Object? codigoPostal = freezed,
-    Object? telefono = freezed,
-    Object? correo = freezed,
-    Object? metodoPago = freezed,
+    Object? colonia = null,
+    Object? codigoPostal = null,
+    Object? telefono = null,
+    Object? correo = null,
+    Object? metodoPago = null,
   }) {
     return _then(_value.copyWith(
-      nombres: nombres == freezed
+      nombres: null == nombres
           ? _value.nombres
           : nombres // ignore: cast_nullable_to_non_nullable
               as String,
-      apellidos: apellidos == freezed
+      apellidos: null == apellidos
           ? _value.apellidos
           : apellidos // ignore: cast_nullable_to_non_nullable
               as String,
-      calle: calle == freezed
+      calle: null == calle
           ? _value.calle
           : calle // ignore: cast_nullable_to_non_nullable
               as String,
-      numeroExterior: numeroExterior == freezed
+      numeroExterior: null == numeroExterior
           ? _value.numeroExterior
           : numeroExterior // ignore: cast_nullable_to_non_nullable
               as int,
-      numeroInterior: numeroInterior == freezed
+      numeroInterior: freezed == numeroInterior
           ? _value.numeroInterior
           : numeroInterior // ignore: cast_nullable_to_non_nullable
-              as int,
-      colonia: colonia == freezed
+              as int?,
+      colonia: null == colonia
           ? _value.colonia
           : colonia // ignore: cast_nullable_to_non_nullable
               as String,
-      codigoPostal: codigoPostal == freezed
+      codigoPostal: null == codigoPostal
           ? _value.codigoPostal
           : codigoPostal // ignore: cast_nullable_to_non_nullable
               as int,
-      telefono: telefono == freezed
+      telefono: null == telefono
           ? _value.telefono
           : telefono // ignore: cast_nullable_to_non_nullable
               as String,
-      correo: correo == freezed
+      correo: null == correo
           ? _value.correo
           : correo // ignore: cast_nullable_to_non_nullable
               as String,
-      metodoPago: metodoPago == freezed
+      metodoPago: null == metodoPago
           ? _value.metodoPago
           : metodoPago // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PaymentStateCopyWith<$Res>
+abstract class _$$PaymentStateImplCopyWith<$Res>
     implements $PaymentStateCopyWith<$Res> {
-  factory _$$_PaymentStateCopyWith(
-          _$_PaymentState value, $Res Function(_$_PaymentState) then) =
-      __$$_PaymentStateCopyWithImpl<$Res>;
+  factory _$$PaymentStateImplCopyWith(
+          _$PaymentStateImpl value, $Res Function(_$PaymentStateImpl) then) =
+      __$$PaymentStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String nombres,
       String apellidos,
       String calle,
       int numeroExterior,
-      int numeroInterior,
+      int? numeroInterior,
       String colonia,
       int codigoPostal,
       String telefono,
@@ -137,67 +146,67 @@ abstract class _$$_PaymentStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaymentStateCopyWithImpl<$Res>
-    extends _$PaymentStateCopyWithImpl<$Res>
-    implements _$$_PaymentStateCopyWith<$Res> {
-  __$$_PaymentStateCopyWithImpl(
-      _$_PaymentState _value, $Res Function(_$_PaymentState) _then)
-      : super(_value, (v) => _then(v as _$_PaymentState));
+class __$$PaymentStateImplCopyWithImpl<$Res>
+    extends _$PaymentStateCopyWithImpl<$Res, _$PaymentStateImpl>
+    implements _$$PaymentStateImplCopyWith<$Res> {
+  __$$PaymentStateImplCopyWithImpl(
+      _$PaymentStateImpl _value, $Res Function(_$PaymentStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_PaymentState get _value => super._value as _$_PaymentState;
-
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nombres = freezed,
-    Object? apellidos = freezed,
-    Object? calle = freezed,
-    Object? numeroExterior = freezed,
+    Object? nombres = null,
+    Object? apellidos = null,
+    Object? calle = null,
+    Object? numeroExterior = null,
     Object? numeroInterior = freezed,
-    Object? colonia = freezed,
-    Object? codigoPostal = freezed,
-    Object? telefono = freezed,
-    Object? correo = freezed,
-    Object? metodoPago = freezed,
+    Object? colonia = null,
+    Object? codigoPostal = null,
+    Object? telefono = null,
+    Object? correo = null,
+    Object? metodoPago = null,
   }) {
-    return _then(_$_PaymentState(
-      nombres: nombres == freezed
+    return _then(_$PaymentStateImpl(
+      nombres: null == nombres
           ? _value.nombres
           : nombres // ignore: cast_nullable_to_non_nullable
               as String,
-      apellidos: apellidos == freezed
+      apellidos: null == apellidos
           ? _value.apellidos
           : apellidos // ignore: cast_nullable_to_non_nullable
               as String,
-      calle: calle == freezed
+      calle: null == calle
           ? _value.calle
           : calle // ignore: cast_nullable_to_non_nullable
               as String,
-      numeroExterior: numeroExterior == freezed
+      numeroExterior: null == numeroExterior
           ? _value.numeroExterior
           : numeroExterior // ignore: cast_nullable_to_non_nullable
               as int,
-      numeroInterior: numeroInterior == freezed
+      numeroInterior: freezed == numeroInterior
           ? _value.numeroInterior
           : numeroInterior // ignore: cast_nullable_to_non_nullable
-              as int,
-      colonia: colonia == freezed
+              as int?,
+      colonia: null == colonia
           ? _value.colonia
           : colonia // ignore: cast_nullable_to_non_nullable
               as String,
-      codigoPostal: codigoPostal == freezed
+      codigoPostal: null == codigoPostal
           ? _value.codigoPostal
           : codigoPostal // ignore: cast_nullable_to_non_nullable
               as int,
-      telefono: telefono == freezed
+      telefono: null == telefono
           ? _value.telefono
           : telefono // ignore: cast_nullable_to_non_nullable
               as String,
-      correo: correo == freezed
+      correo: null == correo
           ? _value.correo
           : correo // ignore: cast_nullable_to_non_nullable
               as String,
-      metodoPago: metodoPago == freezed
+      metodoPago: null == metodoPago
           ? _value.metodoPago
           : metodoPago // ignore: cast_nullable_to_non_nullable
               as String,
@@ -207,13 +216,13 @@ class __$$_PaymentStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaymentState implements _PaymentState {
-  _$_PaymentState(
+class _$PaymentStateImpl implements _PaymentState {
+  _$PaymentStateImpl(
       {this.nombres = '',
       this.apellidos = '',
       this.calle = '',
       this.numeroExterior = 0,
-      this.numeroInterior = 0,
+      this.numeroInterior = null,
       this.colonia = '',
       this.codigoPostal = 0,
       this.telefono = '',
@@ -234,7 +243,7 @@ class _$_PaymentState implements _PaymentState {
   final int numeroExterior;
   @override
   @JsonKey()
-  final int numeroInterior;
+  final int? numeroInterior;
   @override
   @JsonKey()
   final String colonia;
@@ -257,44 +266,49 @@ class _$_PaymentState implements _PaymentState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaymentState &&
-            const DeepCollectionEquality().equals(other.nombres, nombres) &&
-            const DeepCollectionEquality().equals(other.apellidos, apellidos) &&
-            const DeepCollectionEquality().equals(other.calle, calle) &&
-            const DeepCollectionEquality()
-                .equals(other.numeroExterior, numeroExterior) &&
-            const DeepCollectionEquality()
-                .equals(other.numeroInterior, numeroInterior) &&
-            const DeepCollectionEquality().equals(other.colonia, colonia) &&
-            const DeepCollectionEquality()
-                .equals(other.codigoPostal, codigoPostal) &&
-            const DeepCollectionEquality().equals(other.telefono, telefono) &&
-            const DeepCollectionEquality().equals(other.correo, correo) &&
-            const DeepCollectionEquality()
-                .equals(other.metodoPago, metodoPago));
+            other is _$PaymentStateImpl &&
+            (identical(other.nombres, nombres) || other.nombres == nombres) &&
+            (identical(other.apellidos, apellidos) ||
+                other.apellidos == apellidos) &&
+            (identical(other.calle, calle) || other.calle == calle) &&
+            (identical(other.numeroExterior, numeroExterior) ||
+                other.numeroExterior == numeroExterior) &&
+            (identical(other.numeroInterior, numeroInterior) ||
+                other.numeroInterior == numeroInterior) &&
+            (identical(other.colonia, colonia) || other.colonia == colonia) &&
+            (identical(other.codigoPostal, codigoPostal) ||
+                other.codigoPostal == codigoPostal) &&
+            (identical(other.telefono, telefono) ||
+                other.telefono == telefono) &&
+            (identical(other.correo, correo) || other.correo == correo) &&
+            (identical(other.metodoPago, metodoPago) ||
+                other.metodoPago == metodoPago));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(nombres),
-      const DeepCollectionEquality().hash(apellidos),
-      const DeepCollectionEquality().hash(calle),
-      const DeepCollectionEquality().hash(numeroExterior),
-      const DeepCollectionEquality().hash(numeroInterior),
-      const DeepCollectionEquality().hash(colonia),
-      const DeepCollectionEquality().hash(codigoPostal),
-      const DeepCollectionEquality().hash(telefono),
-      const DeepCollectionEquality().hash(correo),
-      const DeepCollectionEquality().hash(metodoPago));
+      nombres,
+      apellidos,
+      calle,
+      numeroExterior,
+      numeroInterior,
+      colonia,
+      codigoPostal,
+      telefono,
+      correo,
+      metodoPago);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_PaymentStateCopyWith<_$_PaymentState> get copyWith =>
-      __$$_PaymentStateCopyWithImpl<_$_PaymentState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PaymentStateImplCopyWith<_$PaymentStateImpl> get copyWith =>
+      __$$PaymentStateImplCopyWithImpl<_$PaymentStateImpl>(this, _$identity);
 }
 
 abstract class _PaymentState implements PaymentState {
@@ -303,35 +317,38 @@ abstract class _PaymentState implements PaymentState {
       final String apellidos,
       final String calle,
       final int numeroExterior,
-      final int numeroInterior,
+      final int? numeroInterior,
       final String colonia,
       final int codigoPostal,
       final String telefono,
       final String correo,
-      final String metodoPago}) = _$_PaymentState;
+      final String metodoPago}) = _$PaymentStateImpl;
 
   @override
-  String get nombres => throw _privateConstructorUsedError;
+  String get nombres;
   @override
-  String get apellidos => throw _privateConstructorUsedError;
+  String get apellidos;
   @override
-  String get calle => throw _privateConstructorUsedError;
+  String get calle;
   @override
-  int get numeroExterior => throw _privateConstructorUsedError;
+  int get numeroExterior;
   @override
-  int get numeroInterior => throw _privateConstructorUsedError;
+  int? get numeroInterior;
   @override
-  String get colonia => throw _privateConstructorUsedError;
+  String get colonia;
   @override
-  int get codigoPostal => throw _privateConstructorUsedError;
+  int get codigoPostal;
   @override
-  String get telefono => throw _privateConstructorUsedError;
+  String get telefono;
   @override
-  String get correo => throw _privateConstructorUsedError;
+  String get correo;
   @override
-  String get metodoPago => throw _privateConstructorUsedError;
+  String get metodoPago;
+
+  /// Create a copy of PaymentState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_PaymentStateCopyWith<_$_PaymentState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PaymentStateImplCopyWith<_$PaymentStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

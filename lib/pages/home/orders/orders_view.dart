@@ -6,7 +6,7 @@ import 'package:reposteria_catra/domain/models/pedidos.dart';
 import 'package:reposteria_catra/global_controller/pedidos_controller.dart';
 
 class OrdersView extends StatelessWidget {
-  const OrdersView({Key? key}) : super(key: key);
+  const OrdersView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class OrdersView extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: Theme.of(context)
                                               .textTheme
-                                              .button,
+                                              .labelLarge,
                                         ),
                                         Text(
                                           "Sabor: ${pedidos[i].productos[j].sabor}\nCantidad: ${pedidos[i].productos[j].cantidad}",
@@ -127,7 +127,7 @@ class OrdersView extends StatelessWidget {
                                     "\$${(pedidos[i].productos[j].precio * pedidos[i].productos[j].cantidad).toStringAsFixed(2)}",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .button
+                                        .labelLarge
                                         ?.copyWith(color: Colors.pink),
                                   ),
                                   const SizedBox(width: 8),

@@ -8,15 +8,18 @@ class InputText extends StatefulWidget {
   final TextInputType? inputType;
   final bool isPassword;
   final String? Function(String?)? validator;
+  final TextEditingController? controller;
+
   const InputText({
-    Key? key,
+    super.key,
     this.onChanged,
     required this.label,
     this.hintText,
     this.inputType,
     this.isPassword = false,
     this.validator,
-  }) : super(key: key);
+    this.controller, // Añadir controlador opcional
+  });
 
   @override
   State<InputText> createState() => _InputTextState();
@@ -24,10 +27,17 @@ class InputText extends StatefulWidget {
 
 class _InputTextState extends State<InputText> {
   late bool _obscureText;
+
   @override
   void initState() {
     super.initState();
     _obscureText = widget.isPassword;
+  }
+
+  @override
+  void dispose() {
+    widget.controller?.dispose();
+    super.dispose();
   }
 
   @override
@@ -36,13 +46,14 @@ class _InputTextState extends State<InputText> {
       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: FormField<String>(
         validator: widget.validator,
-        initialValue: '',
+        initialValue: widget.controller?.text,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         builder: (state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
+                controller: widget.controller,
                 obscureText: _obscureText,
                 keyboardType: widget.inputType,
                 onChanged: (text) {
